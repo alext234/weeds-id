@@ -1,2 +1,2 @@
-# weeds-id
-Playground to experiment various machine learning models to identify weeds plants based on images
+
+Playground to experiment various machine learning models to class a plant picture as a weed or  not.
