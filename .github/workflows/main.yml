@@ -21,6 +21,10 @@ jobs:
         run: |
             pip install -r requirements.txt
 
-      - name: Generate dataset from 'sample' issues
+      - name: Extract urls and labels
         run: |
             TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks/generate-datasets.ipynb  --ExecutePreprocessor.timeout=600 --debug
+
+      - name: Download images from urls
+        run: |
+            ls notebooks
