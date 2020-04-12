@@ -23,4 +23,4 @@ jobs:
 
       - name: Generate dataset from 'sample' issues
         run: |
-            TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks/ generate-datasets.ipynb  --ExecutePreprocessor.timeout=600 --debug
+            TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks/generate-datasets.ipynb  --ExecutePreprocessor.timeout=600 --debug
