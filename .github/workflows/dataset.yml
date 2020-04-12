@@ -5,8 +5,9 @@ on:
     branches:
       - master
 
-  schedule: # every day
-    - cron:  '0 8 * * *'
+  # TODO: should be triggered on issue creation or comments added?
+  #schedule: # every day
+  #  - cron:  '0 8 * * *'
 
 jobs:
   generate-dataset:
@@ -20,6 +21,6 @@ jobs:
         run: |
             pip install -r requirements.txt
 
-      - name: Execute scrappers
+      - name: Generate dataset from 'sample' issues
         run: |
-            TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks-scrappers/*.ipynb   --ExecutePreprocessor.timeout=600 --debug
+            TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks/ generate-datasets.ipynb  --ExecutePreprocessor.timeout=600 --debug
