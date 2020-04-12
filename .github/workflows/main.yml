@@ -1,0 +1,25 @@
+name: Dataset generation
+
+on:
+  push:
+    branches:
+      - master
+
+  schedule: # every day
+    - cron:  '0 8 * * *'
+
+jobs:
+  generate-dataset:
+    runs-on: ubuntu-latest
+    container: 
+        image: alext234/datascience:latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+            pip install -r requirements.txt
+
+      - name: Execute scrappers
+        run: |
+            TOKEN=${{ secrets.GITHUB_TOKEN }} jupyter nbconvert --execute notebooks-scrappers/*.ipynb   --ExecutePreprocessor.timeout=600 --debug
