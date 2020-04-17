@@ -32,6 +32,9 @@ jobs:
             ls
 
       - name: zip up and upload
+        env:
+            KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+            KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
         run: |
             cd notebooks && zip dataset.zip -r weed not_weed
             mkdir kaggle
