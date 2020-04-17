@@ -41,6 +41,6 @@ jobs:
             cd kaggle
             kaggle datasets metadata superdatabot/weeds-not-weeds 
             mv ../dataset.zip .
-            kaggle datasets version -m 'update from Github Action Run ID $GITHUB_RUN_ID'
+            kaggle datasets version -m "update from Github Action Run ID $GITHUB_RUN_ID"
             
             
