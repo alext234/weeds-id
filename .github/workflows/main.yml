@@ -33,6 +33,7 @@ jobs:
 
       - name: zip up and upload
         run: |
-            echo TODO
+            cd notebooks && zip dataset.zip -r weed not_weed
+            echo TODO upload zip file 
 
             
